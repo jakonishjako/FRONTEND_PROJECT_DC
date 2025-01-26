@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>movie_booking</title>
+<link rel="stylesheet" type="text/css" href="JAVASCRIPT_PROJECT.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity=" sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Metal+Mania&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Rubik+Dirt&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"><!-- 
+<script src="validation_js.js"></script> -->
+</head>
+<body>
+<div class="bg-dark">
+<nav class="navbar navbar-light bg-dark movie-back sticky-top">
+<div class="container-fluid">
+<a class="d-flex navbar-brand" href="#">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2HnpUDWD39KSHlrCs-BdaEZrx-tuRFfRLNI9Xj95c0hY3JKauzwI0ipfVxERrZiZKejA&usqp=CAU"class="rounded-circle" width="35px" height="30px">
+<a class="navbar-brand nav-link movie_nav text-success">Movies</a>
+<a href="JAVASCRIPT_PROJECT.html" class="navbar-brand me-auto movie_nav text-light">Home</a>
+<form class="d-flex">
+<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+<button class="btn btn-outline-info" type="submit">Search</button>
+</form>
+</div>
+</nav>
+<div class="container-fluid movie_top d-flex justify-content-center align-items-end">
+<div>
+<h1 class="display-2 text-center bg-verbs fw-bold m-0">JOKER FOLIE DE FEUX </h1>
+<h5 class="text-center bg-verbs">2h 49m• Action, Drama, Thriller • UA • 2 Oct, 2024</h5>
+<h1 class="text-center bg-verbs"><a href="" class="text-decoration-none text-light"><i class="bi bi-star-half text-warning"></i> 7.1/10</a></h1>
+<div class="d-flex justify-content-center mt-2 mb-2">
+	<button class="btn btn-outline-light" id="booking" onclick="booking(event),this.blur()">BOOK TICKETS</button>
+</div>
+</div>
+</div>
+<div class="container-fluid bg-dark main_div text-light">
+<h1 class=" text-center pt-3">About The Movie</h1>
+<p class="text-center px-5">The movie takes place after the events of the first film, with Arthur Fleck, aka Joker, in custody at Arkham State Hospital.
+Arthur's lawyer plans to argue that he suffers from dissociative identity disorder.
+At the hospital, Arthur meets Harleen "Lee" Quinzel, a patient who becomes obsessed with him.
+Lee's obsession with Arthur leads to a deadly romantic relationship between the two.
+As the story unfolds, Arthur's Joker persona becomes a symbol of chaos and anarchy in Gotham City.
+The film features a unique blend of music, dance, and drama, with Arthur and Lee breaking into song and dance numbers throughout the movie.
+The movie's plot thickens as Arthur's trial approaches, with the prosecution seeking to hold him accountable for his crimes.
+In the end, Arthur's fate is sealed, but not before he inspires a new generation of chaos and anarchy in Gotham City.
+The movie concludes with a haunting scene, as a young inmate carves a Glasgow smile into his own face, hinting at a new Joker in the making .
+</p>
+<br>
+<hr class="w-50 mx-auto my-4">
+<div class="row">
+<h1 class="text-center">Cast</h1>
+<div class="col-xs-4 col-sm-4 col-md-4 col-lg-2 ps-3 d-flex justify-content-center">
+<a href="" class="text-decoration-none text-light"><img src="https://cdn.britannica.com/63/215263-050-6C78005B/American-actor-Joaquin-Phoenix-2020.jpg" class="rounded-circle cast_border" height="110px" width="110px"><p class="text-center">Joaquin phoenix</p></a>
+</div>
+<div class="col-xs-4 col-sm-4 col-md-4 col-lg-2  d-flex justify-content-center">
+<a href="" class="text-decoration-none text-light"><img src="https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/522879_v9_bd.jpg" class="rounded-circle cast_border" height="110px" width="110px"><p class="text-center">Lady Gaga</p></a>
+</div>
+<div class="col-xs-4 col-sm-4 col-md-4 col-lg-2  d-flex justify-content-center">
+<a href="" class="text-decoration-none text-light"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1FqAaBfk75hwkjSCT4K5y8TPqumO6MLSQPg&s" class="rounded-circle cast_border" height="110px" width="110px"><p class="text-center">Harry lawtey</p></a>
+</div>
+<div class="col-xs-4 col-sm-4 col-md-4 col-lg-2  d-flex justify-content-center">
+<a href="" class="text-decoration-none text-light"><img src="https://static.wikia.nocookie.net/atlanta-fx/images/c/c3/Zazie_Beetz.png/revision/latest?cb=20170321231620" class="rounded-circle cast_border" height="110px" width="110px"><p class="text-center">Zazie beetz</p></a>
+</div>
+<div class="col-xs-4 col-sm-4 col-md-4 col-lg-2  d-flex justify-content-center">
+<a href="" class="text-decoration-none text-light"><img src="https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/693266_v9_bc.jpg" class="rounded-circle cast_border" height="110px" width="110px"><p class="text-center">Jacob lofland</p></a>
+</div>
+<div class="col-xs-4 col-sm-4 col-md-4 col-lg-2 pe-0  d-flex justify-content-center">
+<a href="" class="text-decoration-none text-light"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL6OmifLqhtTwH3O5WaiujFJqEsfkYr7Mwpw&s" class="rounded-circle cast_border" height="110px" width="110px"><p class="text-center">Brendan Gleesan</p></a>
+</div>
+</div>
+</div>
+<br>
+<br>
+<div class="container movie_footer bg-dark pb-3 text-muted">
+<hr class="m-0 text-light">
+<p class="text-center m-0">Based On Characters From</p>
+<h1 class="display-5 text-center fw-bold">DC</h1>
+<div class="row pt-4 ">
+<div class="col-3"></div>
+<div class="col-6 d-flex justify-content-center">
+	<a href="" ><i class="bi bi-instagram display-6 pe-4 text-muted"></i></a>
+	<a href=""><i class="bi bi-threads display-6 pe-4 text-muted"></i></a>
+	<a href=""><i class="bi bi-facebook display-6 pe-4 text-muted"></i></a>
+	<a href=""><i class="bi bi-twitter-x display-6 pe-4 text-muted"></i></a>
+	<a href=""><i class="bi bi-youtube display-6 text-muted"></i></a>
+</div>
+<div class="col-3"></div>
+<p class="text-center pt-4">© & ™ DC. ALL RIGHTS RESERVED</p>
+</div>
+</div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+	function booking(event)
+		{
+		event.preventDefault();
+		let logged_status=sessionStorage.getItem('name') || ""
+		console.log(logged_status)
+			if(logged_status!='')
+			{
+				window.location.href='JAVASCRIPT_PROJECT_TICKET.html'
+			}
+			else
+			{
+				if (confirm('you need to login to continue!!')) 
+				{
+					window.location.href='dc_validation.html'
+				}
+				else
+				{
+					alert('login process failed!!')
+				}
+			}
+		}
+</script>

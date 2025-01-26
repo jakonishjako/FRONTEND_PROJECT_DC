@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ticket booking</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"crossorigin="anonymous"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>  
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Bebas+Neue&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Metal+Mania&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Rubik+Dirt&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+	<style type="text/css">
+		body
+		{
+			font-family: "Afacad", sans-serif;
+			background: url(https://wallpaper.forfun.com/fetch/bd/bd57443e0dfb280c0b334d81d038ebab.jpeg);
+			background-position: center;
+			background-size: cover;
+		}
+		.sub_div
+		{
+			height: 40px;
+			width:40px;
+			margin: 5px;
+			background-color: #ddd;
+			border-radius: 5px;
+			cursor: pointer;
+			box-shadow:  0px 0px 5px 2px rgba(0, 0, 0, 0.5);
+		}
+		 .sub_div_selcted
+		 {
+		 	height: 40px;
+			width:40px;
+			margin: 5px;
+			background-color: darkred;
+			border-radius: 5px;
+			cursor: pointer;
+			color: white;
+			box-shadow:  0px 0px 5px 2px rgba(0, 0, 0, 0.5);
+		 }
+		.selected
+		{
+			height: 40px;
+			width:40px;
+			margin: 5px;
+			background-color: darkred;
+			border-radius: 5px;
+			color: white;
+			cursor: not-allowed;
+			box-shadow:  0px 0px 5px 2px rgba(0, 0, 0, 0.5);
+		}
+		.row_label
+		{
+			height: 40px;
+			width: 20px;
+			background-color: transparent;
+			font-weight: bold;
+			color: white;
+		}
+		.selection
+		{
+			border-radius: 5px;
+			border: 2px solid black;
+			color: black;
+			background-color:#ddd;
+		}	
+		.model_border
+		{
+			border-radius: 5px;
+			border: 2px solid black;
+		}																									
+	</style>
+</head>
+<body>
+<div class="container-fluid p-0 vh-100">
+	<div class="container">
+		<h1 class="text-center text-light">TICKET BOOKING : JOKER FOLIE DE FEUX</h1>
+		<!-- <h3 class="text-center text-light">MOVIE NAME : Joker Folie De Feux</h3> -->
+		<h2 class="text-center text-light">select the seats</h2>
+	<div class="text-center" id="main_div"></div>
+	<h5 class="text-center text-success" id="max_alert"></h5>
+	<h4 class="text-center text-light">SELECTED SEATS : <span id="selected_seats"></span></h4>
+	<h5 class="text-center text-light" id="offer_alert"></h5>
+	<div class=" form-group d-flex justify-content-center">
+	<div class="mx-4">
+	<label for="select" class="fw-bold text-light">SEAT CATEGORY : </label>
+	<select name="select" class="text-center selection form-control" id="category">
+		<option value="standard">Standard - 240 RS</option>
+        <option value="premium">Premium - 350 RS</option>
+        <option value="vip">VIP - 500 RS</option>
+	</select>
+	</div>
+	<div class="modal fade model_border" id="myModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-dark">
+          <h5 class="modal-title text-light" id="modalLabel">Ticket Booking details</h5>
+          <button type="button" class="btn-close btn-light" data-bs-dismiss="modal" aria-label="Close" onclick=""></button>
+        </div>
+        <div class="modal-body text-center" id="modal_message">
+          <h4>Booking Sucessful !!</h4>
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+          <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Return To Main Page</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="mx-4">
+	<label for="showTime" class="fw-bold ps-4 text-light">Show Timing :</label>
+            <select id="showTime" class="text-center selection form-control form-select" >
+                <option value="10:00 AM">10:00 AM</option>
+                <option value="1:00 PM">1:00 PM</option>
+                <option value="4:00 PM">4:00 PM</option>
+                <option value="7:00 PM">7:00 PM</option>
+            </select>
+   </div>
+	</div>
+	<h2 class="text-center text-light">TOTAL PRICE : <span id="total_price"></span></h2>
+	<div class="d-flex justify-content-center pt-3">
+	<button class="btn btn-outline-light fw-bold " id='submit' onclick="this.blur()">SUBMIT BOOKING</button>
+	</div>
+	<div class="d-flex justify-content-center pt-3">
+	<button class="btn btn-outline-danger fw-bold " id='submit_' onclick="window.location.replace('JAVASCRIPT_PROJECT_MOVIE.html')">RETURN TO PREVIOUS PAGE
+	</button>
+	</div>
+	</div>
+</div>
+</body>
+
+<!--javascript-->
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded', function() {
+    let main_div = document.getElementById('main_div');
+    let row_count = 5;
+    let column_count = 10;
+    let column_name=['A','B','C','D','E']
+    let selected_seats=['A1','B5','B9','C5','D9','D10','E5','E6','C1']
+    let new_selected_seats=[]
+    let total_price=0
+    let total_price_display=document.getElementById('total_price')
+    let selected_seats_display=document.getElementById('selected_seats')
+    let max_alert=document.getElementById('max_alert')
+    let seatprice=240
+    let offer_alert=document.getElementById('offer_alert')
+    //html structure creation
+    for (let j = 0; j < row_count; j++) 
+    {
+        let row = document.createElement('div');
+        row.classList.add('row','d-flex','justify-content-center','p-2');
+        let row_label=document.createElement('div')
+        	row_label.classList.add('row_label','d-flex',)
+        	row_label.innerHTML=column_name[j]
+        	row.appendChild(row_label)
+        for (let i = 1; i <=column_count; i++) {
+            let sub_div = document.createElement('div');
+            sub_div.classList.add('sub_div','text-center');
+            sub_div.innerHTML = `${column_name[j]}${i}`;
+            if (selected_seats.includes(sub_div.innerHTML))
+            {
+            	sub_div.classList.replace('sub_div','selected')
+            }
+            row.appendChild(sub_div);
+        }
+        main_div.appendChild(row);
+    }
+    //sub_div operations
+    let sub_div_function=document.querySelectorAll('.sub_div')
+    sub_div_function.forEach((element)=>
+    {
+    	selected_seats_display.innerHTML='NONE'
+    	element.addEventListener('click', function() {
+        let innerText = element.innerText;
+        if(new_selected_seats.length<10)
+        {
+        if (new_selected_seats.includes(innerText)) 
+        {
+        	element.classList.replace('sub_div_selcted','sub_div')
+        	new_selected_seats = new_selected_seats.filter((seat) => seat !== innerText);
+        }
+        else
+        {
+           element.classList.replace('sub_div','sub_div_selcted')
+           new_selected_seats.push(innerText)
+        }
+	    }
+	    else
+	    {
+	    if (new_selected_seats.includes(innerText)) 
+        {
+        	element.classList.replace('sub_div_selcted','sub_div')
+        	new_selected_seats = new_selected_seats.filter((seat) => seat !== innerText);
+        	max_alert.innerHTML=''
+        }
+        else
+        {
+           max_alert.innerText='Maximum Seats Selected'
+        }		
+	    }	
+	    if (new_selected_seats.length>0) {
+	    selected_seats_display.innerHTML=new_selected_seats
+	}
+	else
+	{
+		selected_seats_display.innerHTML='NONE'
+	}
+	update_price()
+    })
+    })
+    let submit=document.getElementById('submit')
+     submit.addEventListener('click',function()
+     {
+     	if (new_selected_seats.length>0)
+     	 {
+     	 	const myModal = new bootstrap.Modal(document.getElementById('myModal'));//controlling bootstraps model using bootstrap
+        	myModal.show();
+        	 myModal._element.addEventListener('hidden.bs.modal', function ()//called when the close button is clicked in the modal
+        	 {
+        	 	setTimeout(()=>{
+        	 		window.location.href='JAVASCRIPT_PROJECT.html'
+        	 	},500)
+        	})
+     	}
+     	else
+     	{
+     		alert('Zero seats selected!!')
+     	}
+     	
+     })
+
+    
+    //updation starts
+    function update_price()
+    {
+    	total_price=seatprice*new_selected_seats.length
+    	if (new_selected_seats.length>3) 
+    	{
+			const discount = 0.25;
+            total_price -= total_price * discount;
+            total_price_display.innerHTML=total_price
+            offer_alert.innerHTML=`You Have Received 25% Offer For Booking ${new_selected_seats.length} Tickets `
+    	}
+    	else
+    	{
+    		total_price_display.innerHTML=total_price
+    		offer_alert.innerHTML=''
+    	}
+    	
+    }
+    
+    document.getElementById("category").addEventListener("change", function(event) {
+ 	let category = event.target.value;
+    if (category=='premium')
+     {
+     	seatprice=350
+     }
+     else if (category=='vip')
+     {
+     	seatprice=500
+     }
+     else
+     {
+     	seatprice=240
+     }
+      update_price()
+});
+    });
+
+</script>
+</html>
